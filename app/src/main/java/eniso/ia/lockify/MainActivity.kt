@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         else
         {
             tvSignedIn.text="You are logged in"
-            Intent(this, LockAndUnlockActivity::class.java).also {
+            Intent(this, BottomNavMenuActivity::class.java).also {
                     startActivity(it)
 
             }
