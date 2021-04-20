@@ -65,6 +65,7 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
         }
 
         val notification = NotificationCompat.Builder(mContext, CHANNEL_ID).setContentTitle("Lock the door !")
+                .setAutoCancel(true)
                 .setContentText("Apparently you didn't lock the door after you opened it ")
                 .setSmallIcon(R.drawable.ic_baseline_lock_24)
                 // how important this specific notification to other notifications you created

@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.coroutines.*
+import kotlinx.coroutines.tasks.await
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,15 +45,13 @@ class MainActivity : AppCompatActivity() {
         val password = etPasswordLoggedIn.editText?.text.toString()
         Log.d("lol", password)
         if (email.isNotEmpty() && password.isNotEmpty()) {
-            CoroutineScope(Dispatchers.IO).async {
+            CoroutineScope(Dispatchers.IO).launch {
                 try {
 
-                    auth.signInWithEmailAndPassword(email,password)
+                    auth.signInWithEmailAndPassword(email,password).await()
                     withContext(Dispatchers.Main)
                     {
-
                         checkLoggedInState()
-
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main){

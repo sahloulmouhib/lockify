@@ -1,5 +1,6 @@
 package eniso.ia.lockify
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
 class RegisterActivity : AppCompatActivity() {
@@ -19,6 +21,10 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
         auth = FirebaseAuth.getInstance()
 
+
+        ivGoBack.setOnClickListener {
+            finish()
+        }
         btnRegister.setOnClickListener{
             registerUser()
 
@@ -35,7 +41,7 @@ class RegisterActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
 
-                    auth.createUserWithEmailAndPassword(email,password)
+                    auth.createUserWithEmailAndPassword(email,password).await()
                     withContext(Dispatchers.Main)
                     {
 
@@ -62,6 +68,9 @@ class RegisterActivity : AppCompatActivity() {
         else
         {
             tvLoggedIn.text="You are  registered"
+            Intent(this, BottomNavMenuActivity::class.java).also {
+                startActivity(it)
+            }
         }
     }
 }

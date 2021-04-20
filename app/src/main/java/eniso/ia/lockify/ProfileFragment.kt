@@ -34,7 +34,7 @@ class ProfileFragment: Fragment(R.layout.profile_fragment) {
             .setTitle("Disconnect")
             .setMessage("Are you sure you want to disconnect from Lockify ?")
             .setPositiveButton("Yes"){_, _ ->
-                Toast.makeText(activity,"you disconeected",Toast.LENGTH_LONG).show()
+                Toast.makeText(activity,"you disconnected",Toast.LENGTH_LONG).show()
                 FirebaseAuth.getInstance().signOut();
                 activity?.finish();
                 exitProcess(0);
