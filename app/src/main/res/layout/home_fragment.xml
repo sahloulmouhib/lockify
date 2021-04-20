@@ -5,24 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/tvHomeFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="228dp"
+        android:layout_height="101dp"
         android:background="@drawable/back"
         android:paddingHorizontal="30dp"
         android:paddingTop="15dp"
-        android:paddingBottom="70dp"
+        android:paddingBottom="50dp"
         android:shadowColor="#FFFFFF"
-        android:text="Your door is now "
+        android:text="    Your door is now "
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659" />
-
+        app:layout_constraintVertical_bias="0.729" />
 
     <TextView
 
@@ -40,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
+        app:layout_constraintVertical_bias="0.737" />
 
     <TextView
         android:id="@+id/tvHello"
@@ -82,13 +83,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779"
+        app:layout_constraintVertical_bias="0.833"
         app:strokeColor="@color/myBlue" />
 
     <Button
 
-        style="?attr/materialButtonOutlinedStyle"
         android:id="@+id/btnBleutooth"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Connect to bluetooth"
@@ -96,21 +97,21 @@
         app:icon="@drawable/ic_baseline_bluetooth_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.922"
+        app:layout_constraintVertical_bias="0.939"
         app:strokeColor="@color/myBlue" />
 
     <ImageView
         android:id="@+id/ivLockAndWifi"
-        android:layout_width="225dp"
-        android:layout_height="260dp"
+        android:layout_width="253dp"
+        android:layout_height="305dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.244"
+        app:layout_constraintVertical_bias="0.322"
         app:srcCompat="@drawable/ic_unlock_and_wifi" />
 
     <ImageView
