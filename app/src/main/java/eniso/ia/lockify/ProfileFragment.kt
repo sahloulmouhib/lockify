@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_lock_and_unlock.*
+import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.android.synthetic.main.profile_fragment.*
 import kotlin.system.exitProcess
 
@@ -28,6 +29,11 @@ class ProfileFragment: Fragment(R.layout.profile_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
 
+        val sessionManager=SessionManager(activity);
+        val userDetails=sessionManager.userDetailFromSession;
+        val firstName= userDetails[SessionManager.KEY_FIRSTNAME];
+        val lastName= userDetails[SessionManager.KEY_LASTNAME];
+        tvUser.text="     ${firstName} ${lastName}"
 
 
         val disconnectDialog = AlertDialog.Builder(activity)

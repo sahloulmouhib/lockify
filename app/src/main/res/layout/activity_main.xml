@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="20dp"
     tools:context=".MainActivity">
+ 
 
     //email
 
@@ -29,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:text="mouhib@hotmail.com"
+            android:text="aziz01@hotmail.com"
             android:textColorHighlight="@color/myYellow"
             android:textColorHint="#FFFFFF"
             android:textColorLink="@color/myYellow" />
@@ -57,7 +58,7 @@
         app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:text="mouhib"
+            android:text="123456"
             android:textColorHighlight="@color/myYellow"
             android:textColorLink="@color/myYellow"
             android:layout_width="match_parent"
