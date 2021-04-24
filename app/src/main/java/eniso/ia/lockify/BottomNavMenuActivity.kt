@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.bottom_nav_menu.*
 
 class BottomNavMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bottom_nav_menu)
 

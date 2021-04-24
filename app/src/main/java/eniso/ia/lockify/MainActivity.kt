@@ -27,14 +27,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
-
         auth.signOut()
         tvCreateAccount.setOnClickListener {
             Intent(this, RegisterActivity::class.java).also {
@@ -69,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
                     withContext(Dispatchers.Main)
                     {
-                        retrievePersons()
+
                         checkLoggedInState()
                     }
                 } catch (e: Exception) {
@@ -86,18 +82,16 @@ class MainActivity : AppCompatActivity() {
     {
         if(auth.currentUser == null)
         {
+
             tvSignedIn.text="You are not logged in"
 
         }
         else
         {
             tvSignedIn.text="You are logged in"
+            retrievePersons()
 
 
-            Intent(this, BottomNavMenuActivity::class.java).also {
-                   startActivity(it)
-
-            }
         }
     }
 
@@ -119,10 +113,15 @@ class MainActivity : AppCompatActivity() {
                         lastName.append("${person.lastName}")
                     }
                     withContext(Dispatchers.Main) {
-                        val firstNamePref=firstName.toString()
-                        val lastNamePref=lastName.toString()
+                        val firstNamePref=firstName.toString().capitalize()
+                        val lastNamePref=lastName.toString().capitalize()
                         val sessionManager=SessionManager(applicationContext);
                         sessionManager.createLoginSession(firstNamePref,lastNamePref)
+                        Intent(applicationContext, BottomNavMenuActivity::class.java).also {
+                            startActivity(it)
+
+                        }
+
                     }
                 }
 
