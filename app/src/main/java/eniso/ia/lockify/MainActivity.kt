@@ -40,9 +40,6 @@ class MainActivity : AppCompatActivity() {
         btnLogin.setOnClickListener{
             loginUser()
 
-
-
-
         }
 
     }
@@ -52,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         checkLoggedInState()
     }
 
-    fun loginUser() {
+    private fun  loginUser() {
        val email=etEmailLoggedIn.editText?.text.toString()
         Log.d("lol",email )
         val password = etPasswordLoggedIn.editText?.text.toString()

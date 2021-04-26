@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lockify1">
-        <activity android:name=".TestWifi"></activity>
+        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".TestWifi" />
         <activity android:name=".tempWifi" />
         <activity android:name=".temp2Activity" />
         <activity android:name=".LanguageActivity" />

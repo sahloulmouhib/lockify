@@ -28,6 +28,7 @@ public class SessionManager {
         editor.apply();
     }
 
+
     public HashMap<String, String> getUserDetailFromSession() {
         HashMap<String, String> userData = new HashMap<>();
         userData.put(KEY_FIRSTNAME, usersSession.getString(KEY_FIRSTNAME, null));

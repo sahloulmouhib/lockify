@@ -7,10 +7,11 @@ import android.app.TaskStackBuilder
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,6 +57,8 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
 
 
         createNotificationChannel()
+        val alarmSound: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
         // a pending intent allows other app to execute apiece of code from our app
         val intent= Intent(mContext, BottomNavMenuActivity::class.java)
         val pendingIntent= TaskStackBuilder.create(mContext).run{
@@ -71,7 +74,9 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
                 // how important this specific notification to other notifications you created
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentIntent(pendingIntent)
+                //.setSound(alarmSound)
                 .build()
+
         val notificationManager = NotificationManagerCompat.from(mContext)
 
 
@@ -82,12 +87,11 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
 
                 val handler = Handler();
                 handler.postDelayed(Runnable {
-                    if(!doorState)
-                    {
+                    if (!doorState) {
                         notificationManager.notify(NOTIFICATION_ID, notification)
                     }
 
-                }, 10000)
+                }, 1000)
 
             }
 
@@ -99,9 +103,10 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
         //check if the phone is running on android oreo or greater
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
         {
-            val channel= NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT).apply {
+            val channel= NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH).apply {
                 lightColor= Color.GREEN
                 enableLights(true)
+                enableVibration(true)
             }
             val manager = activity!!.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(channel)

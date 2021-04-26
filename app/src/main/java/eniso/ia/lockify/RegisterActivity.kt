@@ -83,9 +83,7 @@ class RegisterActivity : AppCompatActivity() {
             val lastName=edLastName.text.toString()
             val person= Person(firstName, lastName)
             savePerson(person)
-            Intent(this, BottomNavMenuActivity::class.java).also {
-                startActivity(it)
-            }
+
         }
     }
 
@@ -103,6 +101,9 @@ class RegisterActivity : AppCompatActivity() {
                         "Successfully saved data",
                         Toast.LENGTH_SHORT
                 ).show()
+                Intent(applicationContext, MainActivity::class.java).also {
+                    startActivity(it)
+                }
             }
         } catch (e: Exception){
             withContext(Dispatchers.Main){

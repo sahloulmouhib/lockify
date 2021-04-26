@@ -66,6 +66,11 @@ class ProfileFragment: Fragment(R.layout.profile_fragment) {
 
             }
         }
+        tvEditProfil.setOnClickListener {
+            Intent(activity, EditProfileActivity::class.java).also {
+                startActivity(it)
+            }
+        }
 
 
 
