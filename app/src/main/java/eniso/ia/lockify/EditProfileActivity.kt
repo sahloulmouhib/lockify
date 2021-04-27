@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.SetOptions
@@ -40,6 +41,8 @@ class EditProfileActivity : AppCompatActivity() {
          storage=FirebaseStorage.getInstance()
          storageReference=storage.reference
         downloadImage()
+
+
         btnUpdateName.setOnClickListener {
             val firstName=etFirstNameUpdated.editText?.text.toString()
             val lastName=etLastNameUpdated.editText?.text.toString()
@@ -59,13 +62,15 @@ class EditProfileActivity : AppCompatActivity() {
             {
                 Toast.makeText(this, "Fill in the blanks first ", Toast.LENGTH_SHORT).show()
             }
-
-
-
         }
 
         ivProfileImage.setOnClickListener {
+           // finish()
           choosePicture()
+        }
+
+        ivGoBack.setOnClickListener {
+                finish()
         }
     }
 
@@ -77,6 +82,7 @@ class EditProfileActivity : AppCompatActivity() {
         val lastName= userDetails[SessionManager.KEY_LASTNAME];
         return Person("aziz","ijoui")
     }
+
     private fun getNewName(): Map<String,Any>
     {
         val sessionManager=SessionManager(this);
@@ -97,6 +103,7 @@ class EditProfileActivity : AppCompatActivity() {
 
         return map
     }
+
     private fun  choosePicture()
     {
         val intent= Intent()
@@ -157,18 +164,17 @@ class EditProfileActivity : AppCompatActivity() {
     }*/
     private fun downloadImage()
     {
-       /* val bytes=storageReference.child("images/${auth.currentUser.uid}")
-        Glide.with(this /* context */)
-            .load(bytes)
-            .into(ivProfileImage)
-        Snackbar.make(findViewById(android.R.id.content),"noiiiice",Snackbar.LENGTH_LONG).show()*/
+
 
        val image= storageReference.child("images/${auth.currentUser.uid}").downloadUrl.addOnSuccessListener {
 
            Glide.with(this)
                .load(it)
+               //.onlyRetrieveFromCache(true)
+                   //.diskCacheStrategy(DiskCacheStrategy.ALL)
+                   .placeholder(R.drawable.profile)
                .into(ivProfileImage)
-               .onlyRetrieveFromCache(true)
+               
            //Snackbar.make(findViewById(android.R.id.content),"noiiiice",Snackbar.LENGTH_LONG).show()
         }.addOnFailureListener {
            ivProfileImage.setImageResource(R.drawable.profile)
