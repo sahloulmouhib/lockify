@@ -180,8 +180,11 @@
             />
 
         <Button
+            android:layout_gravity="center_horizontal"
+            android:paddingVertical="13dp"
+            android:paddingHorizontal="50dp"
             android:id="@+id/btnUpdateName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Confirm" />
     </LinearLayout>

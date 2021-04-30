@@ -103,8 +103,10 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
             //notificationManager.notify(NOTIFICATION_ID, notification)
             if (tvState.text.toString() == "Locked") {
                 tvState.text = "Unlocked"
+                ivLockedAndUnlocked.setImageResource(R.drawable.ic_locked_home)
             } else {
                 tvState.text = "Locked"
+                ivLockedAndUnlocked.setImageResource(R.drawable.ic_unlocked_home)
             }
         }
 

@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.snackbar.Snackbar
@@ -20,6 +21,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.activity_manage_family_members.*
 import kotlinx.android.synthetic.main.home_fragment.*
 import java.util.*
 
@@ -34,6 +36,9 @@ class EditProfileActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
@@ -171,13 +176,13 @@ class EditProfileActivity : AppCompatActivity() {
            Glide.with(this)
                .load(it)
                //.onlyRetrieveFromCache(true)
-                   //.diskCacheStrategy(DiskCacheStrategy.ALL)
-                   .placeholder(R.drawable.profile)
+                   .diskCacheStrategy(DiskCacheStrategy.ALL)
+                   //.placeholder(R.drawable.profile)
                .into(ivProfileImage)
                
            //Snackbar.make(findViewById(android.R.id.content),"noiiiice",Snackbar.LENGTH_LONG).show()
         }.addOnFailureListener {
-           ivProfileImage.setImageResource(R.drawable.profile)
+          // ivProfileImage.setImageResource(R.drawable.profile)
         }
     }
 }

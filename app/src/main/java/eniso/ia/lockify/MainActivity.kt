@@ -80,12 +80,12 @@ class MainActivity : AppCompatActivity() {
         if(auth.currentUser == null)
         {
 
-            tvSignedIn.text="You are not logged in"
+            //tvSignedIn.text="You are not logged in"
 
         }
         else
         {
-            tvSignedIn.text="You are logged in"
+          //  tvSignedIn.text="You are logged in"
             retrievePersons()
 
 

@@ -91,6 +91,8 @@
                 android:text="     Arabe" />
 
             <Button
+                android:paddingVertical="13dp"
+                android:paddingHorizontal="50dp"
                 android:id="@+id/btnSumbit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

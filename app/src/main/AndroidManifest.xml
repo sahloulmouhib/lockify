@@ -18,7 +18,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lockify1">
-        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".ManageFamilyMembersActivity"></activity>
+        <activity android:name=".SplashScreenHomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".EditProfileActivity" />
         <activity android:name=".TestWifi" />
         <activity android:name=".tempWifi" />
         <activity android:name=".temp2Activity" />
@@ -28,13 +36,7 @@
         <activity android:name=".BottomNavMenuActivity" />
         <activity android:name=".LockAndUnlockActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

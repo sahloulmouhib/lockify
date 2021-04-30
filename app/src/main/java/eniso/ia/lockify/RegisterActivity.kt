@@ -81,7 +81,8 @@ class RegisterActivity : AppCompatActivity() {
             tvLoggedIn.text="You are  registered"
             val firstName= edFirstName.text.toString()
             val lastName=edLastName.text.toString()
-            val person= Person(firstName, lastName)
+            val email=etEmailRegister.editText?.text.toString()
+            val person= Person(firstName, lastName,email,mutableListOf(),false,false)
             savePerson(person)
 
         }
