@@ -20,7 +20,7 @@
 
         android:id="@+id/bnv"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/flFragment"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_nav_menu"
-        app:itemRippleColor="@color/myYellow"
+        app:itemRippleColor="@android:color/transparent"
         app:itemIconTint="@drawable/nav_item_color"
         app:itemTextColor="@drawable/nav_item_color"
         />

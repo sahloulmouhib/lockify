@@ -48,8 +48,8 @@ android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:hint="First Name"
-                app:boxStrokeColor="@color/myYellow"
-                app:hintTextColor="@color/myYellow"
+                app:boxStrokeColor="@color/myBlue"
+                app:hintTextColor="@color/myBlue"
 
                 app:startIconContentDescription=""
                 app:startIconDrawable="@drawable/ic_baseline_assignment_ind_24">>
@@ -59,8 +59,8 @@ android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:textColorHighlight="@color/myYellow"
-                    android:textColorLink="@color/myYellow" />
+                    android:textColorHighlight="@color/myBlue"
+                    android:textColorLink="@color/myBlue" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,8 +73,8 @@ android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:hint="Last Name"
-                app:boxStrokeColor="@color/myYellow"
-                app:hintTextColor="@color/myYellow"
+                app:boxStrokeColor="@color/myBlue"
+                app:hintTextColor="@color/myBlue"
 
                 app:startIconContentDescription=""
                 app:startIconDrawable="@drawable/ic_baseline_assignment_ind_24">>
@@ -84,8 +84,8 @@ android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:textColorHighlight="@color/myYellow"
-                    android:textColorLink="@color/myYellow" />
+                    android:textColorHighlight="@color/myBlue"
+                    android:textColorLink="@color/myBlue" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,8 +99,8 @@ android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:hint="Email"
-                app:boxStrokeColor="@color/myYellow"
-                app:hintTextColor="@color/myYellow"
+                app:boxStrokeColor="@color/myBlue"
+                app:hintTextColor="@color/myBlue"
 
                 app:startIconContentDescription=""
                 app:startIconDrawable="@drawable/ic_email">>
@@ -109,8 +109,8 @@ android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:textColorHighlight="@color/myYellow"
-                    android:textColorLink="@color/myYellow" />
+                    android:textColorHighlight="@color/myBlue"
+                    android:textColorLink="@color/myBlue" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -124,9 +124,9 @@ android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:hint="Password"
-                app:boxStrokeColor="@color/myYellow"
+                app:boxStrokeColor="@color/myBlue"
                 app:endIconMode="password_toggle"
-                app:hintTextColor="@color/myYellow"
+                app:hintTextColor="@color/myBlue"
 
                 app:startIconContentDescription=""
                 app:startIconDrawable="@drawable/ic_baseline_lock_24">
@@ -135,8 +135,8 @@ android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:textColorHighlight="@color/myYellow"
-                    android:textColorLink="@color/myYellow" />
+                    android:textColorHighlight="@color/myBlue"
+                    android:textColorLink="@color/myBlue" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -147,9 +147,9 @@ android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:hint="Confirm password"
-                app:boxStrokeColor="@color/myYellow"
+                app:boxStrokeColor="@color/myBlue"
                 app:endIconMode="password_toggle"
-                app:hintTextColor="@color/myYellow"
+                app:hintTextColor="@color/myBlue"
 
                 app:startIconContentDescription=""
                 app:startIconDrawable="@drawable/ic_baseline_lock_24">
@@ -158,8 +158,8 @@ android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:textColorHighlight="@color/myYellow"
-                    android:textColorLink="@color/myYellow" />
+                    android:textColorHighlight="@color/myBlue"
+                    android:textColorLink="@color/myBlue" />
 
 
             </com.google.android.material.textfield.TextInputLayout>

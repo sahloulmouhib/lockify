@@ -79,7 +79,7 @@
 
             android:shape="ring"
             app:cardCornerRadius="100dp"
-            app:strokeColor="@color/myYellow"
+            app:strokeColor="@color/myLightBlue"
             app:strokeWidth="2dp">
 
 
@@ -123,9 +123,9 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:hint="First  name"
-            app:boxStrokeColor="@color/myYellow"
+            app:boxStrokeColor="@color/myBlue"
 
-            app:hintTextColor="@color/myYellow"
+            app:hintTextColor="@color/myBlue"
 
             app:startIconContentDescription=""
             app:startIconDrawable="@drawable/ic_baseline_assignment_ind_24">>
@@ -134,8 +134,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:textColorHighlight="@color/myYellow"
-                android:textColorLink="@color/myYellow" />
+                android:textColorHighlight="@color/myBlue"
+                android:textColorLink="@color/myBlue" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -156,8 +156,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Last name"
-            app:boxStrokeColor="@color/myYellow"
-            app:hintTextColor="@color/myYellow"
+            app:boxStrokeColor="@color/myBlue"
+            app:hintTextColor="@color/myBlue"
             app:startIconContentDescription=""
             app:startIconDrawable="@drawable/ic_baseline_assignment_ind_24">
 
@@ -165,8 +165,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:textColorHighlight="@color/myYellow"
-                android:textColorLink="@color/myYellow" />
+                android:textColorHighlight="@color/myBlue"
+                android:textColorLink="@color/myBlue" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView

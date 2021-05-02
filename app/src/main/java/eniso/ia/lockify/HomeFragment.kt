@@ -17,14 +17,7 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.home_fragment.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
 class HomeFragment: Fragment(R.layout.home_fragment) {
@@ -48,12 +41,13 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
 
     }
 
+
     val CHANNEL_ID = "channelId"
     val CHANNEL_NAME = "channelName"
     val NOTIFICATION_ID = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        var chechState=true
       val sessionManager=SessionManager(activity);
        val userDetails=sessionManager.userDetailFromSession;
         val firstName= userDetails[SessionManager.KEY_FIRSTNAME];
@@ -99,14 +93,23 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
                 .build()
         val notificationManager = NotificationManagerCompat.from(mContext)
 
-        btnCheckState.setOnClickListener {
+        ivCheckState.setOnClickListener {
+
             //notificationManager.notify(NOTIFICATION_ID, notification)
-            if (tvState.text.toString() == "Locked") {
-                tvState.text = "Unlocked"
-                ivLockedAndUnlocked.setImageResource(R.drawable.ic_locked_home)
+            if (chechState) {
+                tvStateLol.setTextColor(Color.parseColor("#1BDF30"))
+                ivCheckState.setImageResource(R.drawable.circle_home_2)
+                tvStateLol.text = "Unlocked"
+                ivLockedAndUnlocked.setImageResource(R.drawable.ic_unlock_new_2)
+                chechState=false
             } else {
-                tvState.text = "Locked"
-                ivLockedAndUnlocked.setImageResource(R.drawable.ic_unlocked_home)
+
+
+                ivCheckState.setImageResource(R.drawable.circle_home)
+                tvStateLol.setText("Locked")
+                tvStateLol.setTextColor(Color.parseColor("#FF2D2D"))
+                ivLockedAndUnlocked.setImageResource(R.drawable.ic_lock_new)
+                chechState=true
             }
         }
 

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:background="#FFFFFF"
-    android:padding="8dp">
+    android:id="@+id/root"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp">
 
     <TextView
         android:id="@+id/tvName"
@@ -13,9 +15,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Mouhib Sahloul"
-        android:textSize="14sp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintEnd_toStartOf="@+id/btnDeleteMember"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,14 +31,16 @@
         app:srcCompat="@drawable/ic_man" />
 
     <ImageButton
+        android:background="?android:selectableItemBackground"
 
-        android:id="@+id/imageButton2"
+
+        android:id="@+id/btnDeleteMember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_delete1" />
+        app:srcCompat="@drawable/ic_delete3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

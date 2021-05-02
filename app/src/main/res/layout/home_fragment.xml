@@ -40,6 +40,7 @@
             app:layout_constraintVertical_bias="0.081" />
 
         <Button
+            android:visibility="invisible"
             android:id="@+id/btnCheckState"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
@@ -53,25 +54,25 @@
             app:layout_constraintBottom_toTopOf="@+id/btnBleutooth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/ivCheckState"
             app:layout_constraintVertical_bias="0.0"
             app:strokeColor="@color/myBlue" />
 
         <Button
 
             android:id="@+id/btnBleutooth"
-            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connect to bluetooth"
+            android:backgroundTint="@color/myBlue"
+            android:text="Connect to the door"
             android:textStyle="bold"
-            app:icon="@drawable/ic_baseline_bluetooth_24"
+            app:cornerRadius="30dp"
+            app:icon="@drawable/ic_wifi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.976"
-            app:strokeColor="@color/myBlue" />
+            app:layout_constraintTop_toBottomOf="@+id/ivCheckState" />
 
         <ImageView
             android:id="@+id/ivLockAndWifi"
@@ -114,7 +115,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/ivCheckState"
             android:layout_width="180dp"
             android:layout_height="180dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -127,24 +128,25 @@
 
         <ImageView
             android:id="@+id/ivLockedAndUnlocked"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivCheckState"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView4"
-            app:layout_constraintVertical_bias="0.333"
-            app:srcCompat="@drawable/ic_unlocked_home" />
+            app:layout_constraintTop_toTopOf="@+id/ivCheckState"
+            app:layout_constraintVertical_bias="0.187"
+            app:srcCompat="@drawable/ic_lock_new" />
 
         <TextView
-            android:id="@+id/tvState"
+            android:id="@+id/tvStateLol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Locked"
-            android:textColor="#FFFFFF"
+            android:textColor="#FF2D2D"
             android:textColorLink="#FFFFFF"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btnCheckState"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

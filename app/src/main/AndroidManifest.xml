@@ -36,7 +36,8 @@
         <activity android:name=".BottomNavMenuActivity" />
         <activity android:name=".LockAndUnlockActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.Lockify1"></activity>
     </application>
 
 </manifest>

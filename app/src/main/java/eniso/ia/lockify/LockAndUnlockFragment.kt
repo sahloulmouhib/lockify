@@ -106,10 +106,7 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
 
             }
 
-        btnManageFamilyMembers.setOnClickListener{
-            addNewFamilyMember()
 
-        }
 
         btnMembers.setOnClickListener {
             val intent= Intent(mContext, ManageFamilyMembersActivity::class.java)
@@ -135,87 +132,9 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
         }
     }
 
-    private fun addNewFamilyMember()= CoroutineScope(Dispatchers.IO).launch{
-        try{
-            val familyMembersEmails= Firebase.firestore.collection("persons").document(auth.currentUser.uid)
-
-            val newFamilyMember=edNewFamilyMember.text.toString()
-            familyMembersEmails.update("familyMembersMails", FieldValue.arrayUnion(newFamilyMember)).await()
-
-            withContext(Dispatchers.Main){
-                Toast.makeText(activity, "Successfully Added new member", Toast.LENGTH_SHORT).show()
-                makePersonToFamilyMember(newFamilyMember)
-                showAllFamilyMembers()
 
 
-            }
-        } catch (e: Exception){
-            withContext(Dispatchers.Main){
-                Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 
-    private fun showAllFamilyMembers()= CoroutineScope(Dispatchers.IO).launch{
-
-        try {
-            val currentUser = FirebaseAuth.getInstance().currentUser.uid
-            val querySnapshot = personCollectionRef.get().await()
-            var familyMembersEmails: MutableList<String> = mutableListOf()
-            for(document in querySnapshot.documents) {
-                if(document.id==currentUser) {
-                    val person = document.toObject<Person>()
-                    if (person != null) {
-                        familyMembersEmails=person.familyMembersMails
-                        break
-                    }
-                }
-                //sb.append("$person\n")
-            }
-            withContext(Dispatchers.Main) {
-                val mails=StringBuilder()
-                for( mail in familyMembersEmails)
-                {
-                    mails.append(",$mail")
-                }
-                tvMails.text = mails.toString()
-            }
-        } catch(e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(activity, e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
-    private fun makePersonToFamilyMember ( newFamilyMember: String)= CoroutineScope(Dispatchers.IO).launch{
-        val personQuery=personCollectionRef
-                .whereEqualTo("email",newFamilyMember)
-                .get()
-                .await()
-        if(personQuery.documents.isNotEmpty())
-        {
-            for(document in personQuery)
-            {
-                try{
-                        personCollectionRef.document(document.id).update("familyMember",true)
-                }catch (e: Exception)
-                {
-                    withContext(Dispatchers.Main)
-                    {
-                        Toast.makeText(activity,e.message,Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-        }
-        else
-        {
-            withContext(Dispatchers.Main)
-            {
-                Toast.makeText(activity,"no person matched the query",Toast.LENGTH_SHORT).show()
-            }
-        }
-
-    }
 
 
 }

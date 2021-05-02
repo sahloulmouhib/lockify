@@ -11,7 +11,103 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
+
         tools:context=".LockAndUnlockActivity">
+
+        <LinearLayout
+            android:padding="20dp"
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnMembers"
+            app:layout_constraintVertical_bias="0.3">
+
+            <com.google.android.material.card.MaterialCardView
+                android:backgroundTint="@color/myLightGreen"
+                android:id="@+id/cv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="3dp"
+                app:strokeColor="#FFEB3B">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="181dp"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="20dp"
+                        android:contentDescription="lorum ipsum lorum ipsum"
+                        app:srcCompat="@drawable/ic_unlock_new_2" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUnlock"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="0dp"
+                        android:text="unlock door"
+                        android:textColor="#1BDF30" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:backgroundTint="@color/myLightRed"
+                android:id="@+id/cv1"
+                android:paddingBottom="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="3dp"
+                app:strokeColor="@color/myYellow">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="20dp"
+
+                        android:contentDescription="lorum ipsum lorum ipsum"
+                        app:srcCompat="@drawable/ic_lock_new" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnLock"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+
+                        android:text="Lock Door"
+                        android:textColor="#FF2D2D" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvLockAndUnlock"
@@ -28,143 +124,43 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv1"
-
-            android:layout_width="280dp"
-            android:layout_height="180dp"
-            android:layout_margin="8dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="30dp"
-            app:cardElevation="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/cv2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvLockAndUnlock"
-            app:strokeColor="@color/myYellow">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Media -->
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="20dp"
-
-                    android:contentDescription="lorum ipsum lorum ipsum"
-                    app:srcCompat="@drawable/lock" />
-
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnLock"
-                    style="?attr/borderlessButtonStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-
-                    android:text="Lock Door"
-                    android:textColor="@color/myBlue" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv2"
-
-            android:layout_width="280dp"
-            android:layout_height="180dp"
-            android:layout_margin="20dp"
-            app:cardCornerRadius="30dp"
-            app:cardElevation="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cv1"
-            app:strokeColor="#FFEB3B">
-
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Media -->
-
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="20dp"
-                    android:contentDescription="lorum ipsum lorum ipsum"
-                    app:srcCompat="@drawable/unlock" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnUnlock"
-                    style="?attr/borderlessButtonStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="0dp"
-                    android:text="unlock door"
-                    android:textColor="@color/myBlue" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <Button
-            android:id="@+id/btnManageFamilyMembers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Manage Family Members"
-            app:layout_constraintBottom_toTopOf="@+id/cv1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvLockAndUnlock" />
-
-        <EditText
-            android:id="@+id/edNewFamilyMember"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="mouhibsahloul@hotmail.com"
-            app:layout_constraintBottom_toTopOf="@+id/cv2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cv1" />
-
-        <TextView
-            android:id="@+id/tvMails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="tvMails"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cv2"
-            app:layout_constraintVertical_bias="0.18" />
-
         <Button
             android:id="@+id/btnMembers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show Members"
-            app:layout_constraintBottom_toBottomOf="parent"
+
+            android:layout_marginTop="188dp"
+            android:backgroundTint="#64B5F6"
+            android:text="Manage Members"
+            app:cornerRadius="30dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvMails"
-            app:layout_constraintTop_toBottomOf="@+id/cv2" />
+            app:layout_constraintHorizontal_bias="0.917"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLockAndUnlock" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="149dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="4dp"
+            android:text="Give acess to your family members  \nto open the door !"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLockAndUnlock"
+            app:layout_constraintVertical_bias="0.308" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/btnMembers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:srcCompat="@drawable/ic_login_hero" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

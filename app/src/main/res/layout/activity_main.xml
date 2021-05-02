@@ -36,8 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:hint="Email"
-            app:boxStrokeColor="@color/myYellow"
-            app:hintTextColor="@color/myYellow"
+            app:boxStrokeColor="@color/myBlue"
+            app:hintTextColor="@color/myBlue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -52,9 +52,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:text="hamzachakroun@hotmail.com"
-                android:textColorHighlight="@color/myYellow"
+                android:textColorHighlight="@color/myBlue"
                 android:textColorHint="#FFFFFF"
-                android:textColorLink="@color/myYellow" />
+                android:textColorLink="@color/myBlue" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,9 +66,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-            app:boxStrokeColor="@color/myYellow"
+            app:boxStrokeColor="@color/myBlue"
             app:endIconMode="password_toggle"
-            app:hintTextColor="@color/myYellow"
+            app:hintTextColor="@color/myBlue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -83,8 +83,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:text="123456"
-                android:textColorHighlight="@color/myYellow"
-                android:textColorLink="@color/myYellow" />
+                android:textColorHighlight="@color/myBlue"
+                android:textColorLink="@color/myBlue" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
