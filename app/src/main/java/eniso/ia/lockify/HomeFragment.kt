@@ -47,7 +47,7 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
     val NOTIFICATION_ID = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        var chechState=true
+        var checkState=true
       val sessionManager=SessionManager(activity);
        val userDetails=sessionManager.userDetailFromSession;
         val firstName= userDetails[SessionManager.KEY_FIRSTNAME];
@@ -96,12 +96,12 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
         ivCheckState.setOnClickListener {
 
             //notificationManager.notify(NOTIFICATION_ID, notification)
-            if (chechState) {
+            if (checkState) {
                 tvStateLol.setTextColor(Color.parseColor("#1BDF30"))
                 ivCheckState.setImageResource(R.drawable.circle_home_2)
                 tvStateLol.text = "Unlocked"
                 ivLockedAndUnlocked.setImageResource(R.drawable.ic_unlock_new_2)
-                chechState=false
+                checkState=false
             } else {
 
 
@@ -109,7 +109,7 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
                 tvStateLol.setText("Locked")
                 tvStateLol.setTextColor(Color.parseColor("#FF2D2D"))
                 ivLockedAndUnlocked.setImageResource(R.drawable.ic_lock_new)
-                chechState=true
+                checkState=true
             }
         }
 

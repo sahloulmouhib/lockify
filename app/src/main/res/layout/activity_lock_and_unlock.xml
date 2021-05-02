@@ -15,24 +15,24 @@
         tools:context=".LockAndUnlockActivity">
 
         <LinearLayout
-            android:padding="20dp"
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:padding="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnMembers"
-            app:layout_constraintVertical_bias="0.3">
+            app:layout_constraintTop_toBottomOf="@+id/tvMessage"
+            app:layout_constraintVertical_bias="1.0">
 
             <com.google.android.material.card.MaterialCardView
-                android:backgroundTint="@color/myLightGreen"
                 android:id="@+id/cv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:backgroundTint="@color/myLightGreen"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="3dp"
                 app:strokeColor="#FFEB3B">
@@ -68,12 +68,12 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:backgroundTint="@color/myLightRed"
                 android:id="@+id/cv1"
-                android:paddingBottom="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:backgroundTint="@color/myLightRed"
+                android:paddingBottom="30dp"
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="3dp"
@@ -129,7 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="188dp"
+            android:layout_marginTop="196dp"
             android:backgroundTint="#64B5F6"
             android:text="Manage Members"
             app:cornerRadius="30dp"
@@ -139,27 +139,27 @@
             app:layout_constraintTop_toBottomOf="@+id/tvLockAndUnlock" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tvMessage"
             android:layout_width="149dp"
             android:layout_height="75dp"
             android:layout_marginStart="4dp"
+            android:layout_marginTop="56dp"
             android:text="Give acess to your family members  \nto open the door !"
             android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvLockAndUnlock"
-            app:layout_constraintVertical_bias="0.308" />
+            app:layout_constraintTop_toBottomOf="@+id/tvLockAndUnlock" />
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/btnMembers"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/tvMessage"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_login_hero" />
 
 

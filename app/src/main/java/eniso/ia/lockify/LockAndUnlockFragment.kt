@@ -18,6 +18,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -57,10 +58,36 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val sessionManager=SessionManager(activity);
+        val userDetailsAccess=sessionManager.accessDetailFromSession;
+        val admin= userDetailsAccess[SessionManager.KEY_ADMIN];
+        val familyMember= userDetailsAccess[SessionManager.KEY_FAMILYMEMBER];
+        if(admin==false)
+        {
+            btnMembers.isVisible=false
+        }
+
+        if(familyMember==true && admin==false)
+        {
+            tvMessage.text="Lock and unlock securely door with Lockify!"
+        }
+        else if (familyMember==false && admin==false)
+        {
+            tvMessage.text="Get access before trying to lock and unlock the door !"
+        }
+
         auth = FirebaseAuth.getInstance()
         btnLock.setOnClickListener{
-            Toast.makeText(getActivity(), "Door is now locked!", Toast.LENGTH_SHORT).show()
-            doorState=true
+            if(admin==true || familyMember==true)
+            {
+                Toast.makeText(getActivity(), "Door is now locked!", Toast.LENGTH_SHORT).show()
+                doorState=true
+            }
+            else
+            {
+                Toast.makeText(getActivity(), "You don't have access to lock the door", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
 
@@ -93,8 +120,10 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
 
 
         btnUnlock.setOnClickListener {
-            doorState=false
-            Toast.makeText(getActivity(), "Door is now unlocked!", Toast.LENGTH_SHORT).show()
+            if(admin==true || familyMember==true)
+            {
+                doorState=false
+                Toast.makeText(getActivity(), "Door is now unlocked!", Toast.LENGTH_SHORT).show()
 
                 val handler = Handler();
                 handler.postDelayed(Runnable {
@@ -103,6 +132,11 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
                     }
 
                 }, 1000)
+            }
+            else
+            {
+                Toast.makeText(getActivity(), "You don't have access to unlock the door", Toast.LENGTH_SHORT).show()
+            }
 
             }
 

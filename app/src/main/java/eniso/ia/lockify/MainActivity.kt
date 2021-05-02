@@ -101,6 +101,8 @@ class MainActivity : AppCompatActivity() {
             val querySnapshot = personCollectionRef.get().await()
             val firstName = StringBuilder()
             val lastName=StringBuilder()
+            var  admin =false
+            var familyMember =false
             for(document in querySnapshot.documents) {
                 if(document.id==currentuser) {
                     val person = document.toObject<Person>()
@@ -108,12 +110,15 @@ class MainActivity : AppCompatActivity() {
                     {
                         firstName.append("${person.firstName}")
                         lastName.append("${person.lastName}")
+                        admin=person.admin
+                        familyMember=person.familyMember
                     }
                     withContext(Dispatchers.Main) {
                         val firstNamePref=firstName.toString().capitalize()
                         val lastNamePref=lastName.toString().capitalize()
                         val sessionManager=SessionManager(applicationContext);
                         sessionManager.createLoginSession(firstNamePref,lastNamePref)
+                        sessionManager.checkAccess(admin, familyMember)
                         Intent(applicationContext, BottomNavMenuActivity::class.java).also {
                             startActivity(it)
 
