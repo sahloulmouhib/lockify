@@ -17,13 +17,15 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.home_fragment.*
 
 
 class HomeFragment: Fragment(R.layout.home_fragment) {
 
 
-
+    private lateinit var realtimeDatabase: DatabaseReference
     private lateinit var mContext: Context
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -45,6 +47,8 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
     val CHANNEL_ID = "channelId"
     val CHANNEL_NAME = "channelName"
     val NOTIFICATION_ID = 0
+    var getdata: ValueEventListener? = null
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         var checkState=true
@@ -53,6 +57,65 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
         val firstName= userDetails[SessionManager.KEY_FIRSTNAME];
         val lastName= userDetails[SessionManager.KEY_LASTNAME];
         tvName.text="${firstName}  ${lastName}"
+
+
+
+         realtimeDatabase= FirebaseDatabase.getInstance().reference
+
+        getdata = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if(dataSnapshot.exists())
+                {
+                    // Get Post object and use the values to update the UI
+                    //val data = dataSnapshot.getValue(String::class.java)
+                    val data = dataSnapshot.child("lock").getValue(String::class.java).toString()
+
+                    if(data=="false")
+                    {
+                        tvStateLol.setTextColor(Color.parseColor("#1BDF30"))
+                        ivCheckState.setImageResource(R.drawable.circle_home_2)
+                        tvStateLol.text = "Unlocked"
+                        ivLockedAndUnlocked.setImageResource(R.drawable.ic_unlock_new_2)
+                        checkState=false
+                    }
+                    else if (data=="true")
+                    {
+                        ivCheckState.setImageResource(R.drawable.circle_home)
+                        tvStateLol.setText("Locked")
+                        tvStateLol.setTextColor(Color.parseColor("#FF2D2D"))
+                        ivLockedAndUnlocked.setImageResource(R.drawable.ic_lock_new)
+                        checkState=true
+                    }
+                    // ...
+                }
+
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        }
+        realtimeDatabase.addValueEventListener(getdata as ValueEventListener)
+       /* if(!checkState)
+        {
+
+                tvStateLol.setTextColor(Color.parseColor("#1BDF30"))
+                ivCheckState.setImageResource(R.drawable.circle_home_2)
+                tvStateLol.text = "Unlocked"
+                ivLockedAndUnlocked.setImageResource(R.drawable.ic_unlock_new_2)
+                checkState=false
+
+        }
+        else
+        {
+            ivCheckState.setImageResource(R.drawable.circle_home)
+            tvStateLol.setText("Locked")
+            tvStateLol.setTextColor(Color.parseColor("#FF2D2D"))
+            ivLockedAndUnlocked.setImageResource(R.drawable.ic_lock_new)
+            checkState=true
+        }*/
 
 
         var notificationImage = true
@@ -93,7 +156,7 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
                 .build()
         val notificationManager = NotificationManagerCompat.from(mContext)
 
-        ivCheckState.setOnClickListener {
+        /*ivCheckState.setOnClickListener {
 
             //notificationManager.notify(NOTIFICATION_ID, notification)
             if (checkState) {
@@ -111,10 +174,25 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
                 ivLockedAndUnlocked.setImageResource(R.drawable.ic_lock_new)
                 checkState=true
             }
-        }
+        }*/
+
+
+
+
+
+
+
+
 
 
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onPause() {
+
+        getdata?.let { realtimeDatabase.removeEventListener(it) }
+
+        super.onPause()
     }
 
     fun createNotificationChannel() {
@@ -134,6 +212,8 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
 
         }
     }
+
+
 
 
   /*  private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
@@ -161,6 +241,7 @@ class HomeFragment: Fragment(R.layout.home_fragment) {
             }
         }
     }*/
+
 
 }
 

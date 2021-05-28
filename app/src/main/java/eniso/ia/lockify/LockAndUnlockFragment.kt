@@ -21,6 +21,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -62,6 +63,10 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
         val userDetailsAccess=sessionManager.accessDetailFromSession;
         val admin= userDetailsAccess[SessionManager.KEY_ADMIN];
         val familyMember= userDetailsAccess[SessionManager.KEY_FAMILYMEMBER];
+
+
+        var realtimeDatabase= FirebaseDatabase.getInstance().reference
+
         if(admin==false)
         {
             btnMembers.isVisible=false
@@ -80,6 +85,7 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
         btnLock.setOnClickListener{
             if(admin==true || familyMember==true)
             {
+                realtimeDatabase.child("lock").setValue("true")
                 Toast.makeText(getActivity(), "Door is now locked!", Toast.LENGTH_SHORT).show()
                 doorState=true
             }
@@ -89,6 +95,8 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
             }
 
         }
+
+
 
 
 
@@ -123,6 +131,7 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
             if(admin==true || familyMember==true)
             {
                 doorState=false
+                realtimeDatabase.child("lock").setValue("false")
                 Toast.makeText(getActivity(), "Door is now unlocked!", Toast.LENGTH_SHORT).show()
 
                 val handler = Handler();
@@ -146,6 +155,9 @@ class LockAndUnlockFragment: Fragment(R.layout.activity_lock_and_unlock) {
             val intent= Intent(mContext, ManageFamilyMembersActivity::class.java)
             startActivity(intent)
         }
+
+
+
 
         super.onViewCreated(view, savedInstanceState)
     }

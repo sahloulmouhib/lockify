@@ -18,6 +18,8 @@ public class SessionManager {
     public static final String KEY_ADMIN="admin";
     public static final String KEY_FAMILYMEMBER="familyMember";
 
+    public static final String KEY_LOCKANDUNLOCKSTATE = "lock";
+
 
     public SessionManager(Context _context) {
         context = _context;
@@ -57,6 +59,15 @@ public class SessionManager {
 
         return userData;
     }
+
+    public void lockAndUnlockState(Boolean lock) {
+        editor.putBoolean(KEY_LOCKANDUNLOCKSTATE, lock);
+        
+        editor.apply();
+    }
+
+
+
 
     public boolean checkLogin() {
         return usersSession.getBoolean(IS_LOGIN, false);
